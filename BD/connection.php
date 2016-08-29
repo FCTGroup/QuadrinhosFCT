@@ -1,17 +1,26 @@
 <?php
 
-	$connection;
+class Connection {
 
-	function connect($host, $dbname, $user, $password){
+	private $connection;
+
+	public function connect($host, $dbname, $user, $password){
 		try{
-			$connection = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $password);
+			$this->connection = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $password);
+			return $this->connection;
 		}catch(PDOExcetion $e){
 			print "Erro: <code>" . $e->getMessage() . "</code>";
 		}
 	}
 
-	function desconnect(){
-		$connection = null;
+	public function desconnect(){
+		$this->connection = null;
 	}
+
+	public function getConnection(){
+		return $this->connection;
+	}
+
+}
 
 ?>
