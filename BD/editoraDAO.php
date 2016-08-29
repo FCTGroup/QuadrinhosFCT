@@ -1,7 +1,7 @@
 <?php
 
 	require_once("connection.php");
-	require_once('../Entities/editora.php');
+	//require_once('../Entities/editora.php');
 
 	class EditoraDAO{
 
@@ -73,11 +73,56 @@
 
 			$connection->disconnect();
 
-						return $houses;
+			return $houses;
 		}
 
-		public function delete(){
+		public function fetchAll(){
+			$connection = new Connection();
+			$connection->connect();
 
+			$sql = $connection->getConnection()->prepare('SELECT * FROM editora');
+			$sql->execute();
+
+			$houses = array();
+
+			while($row = $sql->fetch()){
+				$houses[] = new Editora($row[0], $row[1], $row[2], $row[3]);
+			}
+
+			$connection->disconnect();
+
+			return $houses;	
+		}
+
+		public function update($editora){
+
+			$connection = new Connection();
+			$connection->connect();
+
+			$sql = $connection->getConnection()->prepare('UPDATE editora SET nome=?, descricao=?, endereco=? WHERE id = ?');
+
+			$sql->bindValue(1,$editora->getName());
+			$sql->bindValue(2,$editora->getDescription());
+			$sql->bindValue(3,$editora->getAddress());
+			$sql->bindValue(4,$editora->getId());
+			$sql->execute();
+
+			$connection->disconnect();
+
+		}
+
+
+
+		public function delete($id){
+			$connection = new Connection();
+			$connection->connect();
+
+			$sql = $connection->getConnection()->prepare('DELETE FROM editora WHERE id = ?');
+
+			$sql->bindValue(1,$id);
+			$sql->execute();
+
+			$connection->disconnect();
 		}
 
 	}
