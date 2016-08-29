@@ -14,6 +14,4 @@
 		$connection = null;
 	}
 
-	connect("localhost", "quadrinhosfct", "root", "");
-
 ?>
