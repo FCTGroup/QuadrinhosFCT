@@ -1,24 +1,40 @@
 <?php
 
-	include_once("connection.php");
+	require_once("connection.php");
+	require_once('../Entities/editora.php');
 
 	class EditoraDAO{
 
 
-		public function insert($nome, $descricao, $endereco){
+		public function insert($name, $description, $address){
 
 			$connection = new Connection();
 			$connection->connect();
 
 			$sql = $connection->getConnection()->prepare('INSERT INTO editora (nome,descricao,endereco) VALUES (?,?,?)');
 
-			$sql->bindValue(1,$nome);
-			$sql->bindValue(2,$descricao);
-			$sql->bindValue(3,$endereco);
+			$sql->bindValue(1,$name);
+			$sql->bindValue(2,$description);
+			$sql->bindValue(3,$address);
 			$sql->execute();
 
 			$connection->disconnect();
 
+		}
+
+		public function insertObject($editora){
+
+			$connection = new Connection();
+			$connection->connect();
+
+			$sql = $connection->getConnection()->prepare('INSERT INTO editora (nome,descricao,endereco) VALUES (?,?,?)');
+
+			$sql->bindValue(1,$editora->getName());
+			$sql->bindValue(2,$editora->getDescription());
+			$sql->bindValue(3,$editora->getAddress());
+			$sql->execute();
+
+			$connection->disconnect();
 
 		}
 
@@ -31,16 +47,16 @@
 			$sql->bindValue(1,$id);
 			$sql->execute();
 
-			while($row = $sql->fetch()){
-				echo $row[0]."</br>".$row[1]."</br>".$row[2]."</br>";
-			}
+			$row = $sql->fetch();
+
+			$house = new Editora($row[0], $row[1], $row[2], $row[3]);
 
 			$connection->disconnect();
+
+			return $house;
 		}
 
 		public function fetchByName($name){
-
-			echo "Entrou";
 
 			$connection = new Connection();
 			$connection->connect();
@@ -49,11 +65,15 @@
 			$sql->bindValue(1,'%'.$name.'%');
 			$sql->execute();
 
+			$houses = array();
+
 			while($row = $sql->fetch()){
-				echo $row[0]."</br>".$row[1]."</br>".$row[2]."</br>";
+				$houses[] = new Editora($row[0], $row[1], $row[2], $row[3]);
 			}
 
 			$connection->disconnect();
+
+						return $houses;
 		}
 
 		public function delete(){
