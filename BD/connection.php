@@ -3,17 +3,21 @@
 class Connection {
 
 	private $connection;
+	private $host = "localhost";
+	private $dbname = "quadrinhosfct";
+	private $user = "root";
+	private $password = "";
 
-	public function connect($host, $dbname, $user, $password){
+	public function connect(){
 		try{
-			$this->connection = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $password);
+			$this->connection = new PDO('mysql:host='.$this->host.';dbname='.$this->dbname, $this->user, $this->password);
 			return $this->connection;
 		}catch(PDOExcetion $e){
 			print "Erro: <code>" . $e->getMessage() . "</code>";
 		}
 	}
 
-	public function desconnect(){
+	public function disconnect(){
 		$this->connection = null;
 	}
 
