@@ -65,15 +65,15 @@
 			$sql->bindValue(1,'%'.$name.'%');
 			$sql->execute();
 
-			$houses = array();
+			$houseArray = array();
 
 			while($row = $sql->fetch()){
-				$houses[] = new Editora($row[0], $row[1], $row[2], $row[3]);
+				$houseArray[] = new Editora($row[0], $row[1], $row[2], $row[3]);
 			}
 
 			$connection->disconnect();
 
-			return $houses;
+			return $houseArray;
 		}
 
 		public function fetchAll(){
@@ -83,15 +83,15 @@
 			$sql = $connection->getConnection()->prepare('SELECT * FROM editora');
 			$sql->execute();
 
-			$houses = array();
+			$houseArray = array();
 
 			while($row = $sql->fetch()){
-				$houses[] = new Editora($row[0], $row[1], $row[2], $row[3]);
+				$houseArray[] = new Editora($row[0], $row[1], $row[2], $row[3]);
 			}
 
 			$connection->disconnect();
 
-			return $houses;	
+			return $houseArray;	
 		}
 
 		public function update($editora){
@@ -110,8 +110,6 @@
 			$connection->disconnect();
 
 		}
-
-
 
 		public function delete($id){
 			$connection = new Connection();
