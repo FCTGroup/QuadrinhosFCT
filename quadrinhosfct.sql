@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 29, 2016 at 10:13 
+-- Generation Time: Aug 30, 2016 at 08:17 
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -75,7 +75,6 @@ CREATE TABLE `genero` (
 
 CREATE TABLE `licenciador` (
   `nome` varchar(255) NOT NULL,
-  `descricao` text NOT NULL,
   `site` varchar(255) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -178,7 +177,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT for table `editora`
 --
 ALTER TABLE `editora`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `formato`
 --
@@ -198,7 +197,7 @@ ALTER TABLE `licenciador`
 -- AUTO_INCREMENT for table `status`
 --
 ALTER TABLE `status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --
