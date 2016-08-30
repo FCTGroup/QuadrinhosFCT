@@ -79,15 +79,15 @@
 			$sql = $connection->getConnection()->prepare('SELECT * FROM status');
 			$sql->execute();
 
-			$houseArray = array();
+			$statusArray = array();
 
 			while($row = $sql->fetch()){
-				$houseArray[] = new Status($row[0], $row[1]);
+				$statusArray[] = new Status($row[0], $row[1]);
 			}
 
 			$connection->disconnect();
 
-			return $houseArray;	
+			return $statusArray;	
 		}
 
 		public function update($status){
