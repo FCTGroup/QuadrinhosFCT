@@ -1,9 +1,9 @@
 <?php
 
 	require_once("connection.php");
-	require_once('../Entities/status.php');
+	require_once('../Entities/genero.php');
 
-	class StatusDAO{
+	class GeneroDAO{
 
 
 		public function insert($name){
@@ -11,7 +11,7 @@
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('INSERT INTO status (nome) VALUES (?)');
+			$sql = $connection->getConnection()->prepare('INSERT INTO genero (nome) VALUES (?)');
 
 			$sql->bindValue(1,$name);
 			$sql->execute();
@@ -20,14 +20,14 @@
 
 		}
 
-		public function insertObject($status){
+		public function insertObject($genero){
 
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('INSERT INTO status (nome) VALUES (?)');
+			$sql = $connection->getConnection()->prepare('INSERT INTO genero (nome) VALUES (?)');
 
-			$sql->bindValue(1,$status->getName());
+			$sql->bindValue(1,$genero->getName());
 			$sql->execute();
 
 			$connection->disconnect();
@@ -39,17 +39,17 @@
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('SELECT * FROM status WHERE id=?');
+			$sql = $connection->getConnection()->prepare('SELECT * FROM genero WHERE id=?');
 			$sql->bindValue(1,$id);
 			$sql->execute();
 
 			$row = $sql->fetch();
 
-			$status = new Status($row[0], $row[1]);
+			$genero = new Genero($row[0], $row[1]);
 
 			$connection->disconnect();
 
-			return $status;
+			return $genero;
 		}
 
 		public function fetchByName($name){
@@ -57,48 +57,48 @@
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('SELECT * FROM status WHERE nome like ?');
+			$sql = $connection->getConnection()->prepare('SELECT * FROM genero WHERE nome like ?');
 			$sql->bindValue(1,'%'.$name.'%');
 			$sql->execute();
 
-			$statusArray = array();
+			$generoArray = array();
 
 			while($row = $sql->fetch()){
-				$statusArray[] = new Status($row[0], $row[1]);
+				$generoArray[] = new Genero($row[0], $row[1]);
 			}
 
 			$connection->disconnect();
 
-			return $statusArray;
+			return $generoArray;
 		}
 
 		public function fetchAll(){
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('SELECT * FROM status');
+			$sql = $connection->getConnection()->prepare('SELECT * FROM genero');
 			$sql->execute();
 
-			$statusArray = array();
+			$generoArray = array();
 
 			while($row = $sql->fetch()){
-				$statusArray[] = new Status($row[0], $row[1]);
+				$generoArray[] = new Genero($row[0], $row[1]);
 			}
 
 			$connection->disconnect();
 
-			return $statusArray;	
+			return $generoArray;	
 		}
 
-		public function update($status){
+		public function update($genero){
 
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('UPDATE status SET nome=? WHERE id = ?');
+			$sql = $connection->getConnection()->prepare('UPDATE genero SET nome=? WHERE id = ?');
 
-			$sql->bindValue(1,$status->getName());
-			$sql->bindValue(2,$status->getId());
+			$sql->bindValue(1,$genero->getName());
+			$sql->bindValue(2,$genero->getId());
 			$sql->execute();
 
 			$connection->disconnect();
@@ -109,7 +109,7 @@
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('DELETE FROM status WHERE id = ?');
+			$sql = $connection->getConnection()->prepare('DELETE FROM genero WHERE id = ?');
 
 			$sql->bindValue(1,$id);
 			$sql->execute();
@@ -118,7 +118,5 @@
 		}
 
 	}
-
-	new StatusDAO();
 
 ?>

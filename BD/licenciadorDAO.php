@@ -1,7 +1,7 @@
 <?php
 
 	require_once("connection.php");
-	//require_once('../Entities/licenciador.php');
+	require_once('../Entities/licenciador.php');
 
 	class LicenciadorDAO{
 
