@@ -13,7 +13,7 @@ class Connection {
 			$this->connection = new PDO('mysql:host='.$this->host.';dbname='.$this->dbname, $this->user, $this->password);
 			return $this->connection;
 		}catch(PDOExcetion $e){
-			print "Erro: <code>" . $e->getMessage() . "</code>";
+			return $e;
 		}
 	}
 

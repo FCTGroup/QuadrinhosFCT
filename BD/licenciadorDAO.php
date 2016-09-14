@@ -9,7 +9,8 @@
 		public function insert($name, $address){
 
 			$connection = new Connection();
-			$connection->connect();
+			if($connection->connect() instanceof PDOException)
+				return null;
 
 			$sql = $connection->getConnection()->prepare('INSERT INTO licenciador (nome,site) VALUES (?,?)');
 
