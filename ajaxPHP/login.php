@@ -7,7 +7,7 @@
 
 
 	$usuarioDAO = new UsuarioDAO();
-	if ($usuarioDAO->validate($login, md5($senha)) == $login){
+	if ($usuarioDAO->validate($login, md5($senha)) == $login && $login!=""){
 		session_start();
 		$_SESSION["login"] = $login;
 		return include("../manager_conteudo.php");
