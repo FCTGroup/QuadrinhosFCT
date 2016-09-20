@@ -3,7 +3,7 @@
 class Formato{
 
 	private $name;
-	private $address;
+	private $description;
 	private $id;
 
 	function Licenciador($name, $description, $id=-1){
