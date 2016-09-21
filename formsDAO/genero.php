@@ -3,7 +3,7 @@
 <script src="genero.js"></script>
 
 <p id="resultadoForm"></p>
-<form id="generoForm">
+<form id="generoForm"  method="POST" action="../formsListagem/genero.php">
 
 <?php 
 
@@ -26,7 +26,7 @@ else {
 	echo '<input type="button" id="cadastrarButton" name="cadastrarButton" value="Cadastrar"/>';
 }
 
-echo '<a href="/web/QuadrinhosFCT/formsListagem/genero.php"><input type="button" value="Voltar"/></a>';
+echo '<a href="../formsListagem/genero.php"><input type="button" value="Voltar"/></a>';
 ?>
 
 </form>
