@@ -13,6 +13,6 @@
 		return include("../manager_conteudo.php");
 	}
 	else
-		return "";
+		return false;
 
 ?>
