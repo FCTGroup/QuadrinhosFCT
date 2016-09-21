@@ -12,7 +12,7 @@
 		$generoDAO->delete($id);
 		echo "Excluído com sucesso";	
 	}catch(PDOException $e){
-		echo "Erro ao inserir";
+		echo "Erro ao excluir";
 	}
 
 ?>

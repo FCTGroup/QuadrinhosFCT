@@ -3,7 +3,7 @@
 <script src="categoria.js"></script>
 
 <p id="resultadoForm"></p>
-<form id="categoriaForm">
+<form id="categoriaForm" method="POST" action="../formsListagem/categoria.php">
 
 <?php 
 
@@ -14,7 +14,7 @@ if(isset($_POST["id"])){
 	$nome = $_POST["nome"]; 
 	$id = $_POST["id"];
 } 
-echo '<input type="hidden" id="idHidden" name="idHidden" value="'.$id.'"></p>';
+echo '<input type="hidden" id="idHidden" name="idHidden" value="'.$id.'"/>';
 echo '<p id="nomeLabel"> Nome: <input type="text" id="nomeTxt" name="nomeTxt" value='.$nome.'> </p>';
 
 

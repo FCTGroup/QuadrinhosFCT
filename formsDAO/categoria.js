@@ -7,10 +7,14 @@ $(document).ready(function(){
 		url: "excluirCategoria.php",
 		datatype:"html",
 		data:{
-			"dadosForm": $("#statusForm").serialize()},
+			"dadosForm": $("#categoriaForm").serialize()},
 		success: function(resposta){
-			$("#resultadoForm").empty();
-			$("#resultadoForm").append(resposta);},
+			$("#resultadoForm").hide();
+				$("#resultadoForm").empty();
+				$("#resultadoForm").append(resposta);
+				$("#resultadoForm").css("color","#00FF00");
+				$("#resultadoForm").fadeIn(1000);
+				setTimeout(function() {$("#categoriaForm").submit()}, 1000)},
 		error: function (request, status, errorThrown) {
 			alert(request+","+status+","+errorThrown);}
 		});
@@ -27,8 +31,12 @@ $(document).ready(function(){
 			data:{
 				"dadosForm": $("#categoriaForm").serialize()},
 			success: function(resposta){
+				$("#resultadoForm").hide();
 				$("#resultadoForm").empty();
-				$("#resultadoForm").append(resposta);},
+				$("#resultadoForm").append(resposta);
+				$("#resultadoForm").css("color","#00FF00");
+				$("#resultadoForm").fadeIn(1000);
+				setTimeout(function() {$("#categoriaForm").submit()}, 1000)},
 			error: function (request, status, errorThrown) {
 				alert(request+","+status+","+errorThrown);}
 			});
@@ -48,8 +56,12 @@ $(document).ready(function(){
 			data:{
 				"dadosForm": $("#categoriaForm").serialize()},
 			success: function(resposta){
+				$("#resultadoForm").hide();
 				$("#resultadoForm").empty();
-				$("#resultadoForm").append(resposta);},
+				$("#resultadoForm").append(resposta);
+				$("#resultadoForm").css("color","#00FF00");
+				$("#resultadoForm").fadeIn(1000);
+				setTimeout(function() {$("#categoriaForm").submit()}, 1000)},
 			error: function (request, status, errorThrown) {
 				alert(request+","+status+","+errorThrown);}
 			});

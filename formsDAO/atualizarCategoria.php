@@ -14,7 +14,7 @@
 		$categoriaDAO->update($categoria);
 		echo "Atualizado com sucesso";	
 	}catch(PDOException $e){
-		echo "Erro ao inserir";
+		echo "Erro ao atualizar";
 	}
 
 ?>
