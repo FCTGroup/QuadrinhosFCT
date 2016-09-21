@@ -13,11 +13,11 @@
 	require_once("../BD/categoriaDAO.php");
 
 	$DAOcategoria = new CategoriaDAO();
-	$CategoriaArray = $DAOcategoria->fetchAll();
+	$categoriaArray = $DAOcategoria->fetchAll();
 
 	echo '<table>';
 
-	foreach($categoriaArray as $categori]){
+	foreach($categoriaArray as $categoria){
 		echo '<tr id="'.$categoria->getId().'"> 
 			<td name="nome">'.$categoria->getName().'</td>
 			<td> <input type="button" class="editarButton" id="'.$categoria->getId().'" value="Editar"> </td>
@@ -29,4 +29,5 @@
 	</table>
 
 	<input type="button" value="Novo" class="novoButton"/>
+	<a href="/web/QuadrinhosFCT/manager.php"><input type="button" value="Voltar"/></a>
 </form>

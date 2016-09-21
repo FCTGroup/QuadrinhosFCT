@@ -33,4 +33,5 @@
 	</table>
 
 	<input type="button" value="Novo" class="novoButton"/>
+	<a href="/web/QuadrinhosFCT/manager.php"><input type="button" value="Voltar"/></a>
 </form>
