@@ -22,8 +22,8 @@
 	foreach($editoraArray as $editora){
 		echo '<tr id="'.$editora->getId().'"> 
 			<td name="nome">'.$editora->getName().'</td>
-			<td name="address">'.$editora->getAddress().'</td>
-			<td name="description">'.$editora->getDescription().'</td>
+			<!--<td name="address">'.$editora->getAddress().'</td>
+			<td name="description">'.$editora->getDescription().'</td>-->
 			<td> <input type="button" class="editarButton" id="'.$editora->getId().'" value="Editar"> </td>
 			</tr>';
 	}
