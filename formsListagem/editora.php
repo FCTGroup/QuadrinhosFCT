@@ -24,7 +24,7 @@
 			<td name="nome">'.$editora->getName().'</td>
 			<!--<td name="address">'.$editora->getAddress().'</td>
 			<td name="description">'.$editora->getDescription().'</td>-->
-			<td> <input type="button" class="editarButton" id="'.$editora->getId().'" value="Editar"> </td>
+			<td> <input type="button" class="editarButton" id="'.$editora->getId().'" value="Detalhes/Editar"> </td>
 			</tr>';
 	}
 

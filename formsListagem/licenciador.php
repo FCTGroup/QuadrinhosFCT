@@ -21,8 +21,8 @@
 	foreach($licenciadorArray as $licenciador){
 		echo '<tr id="'.$licenciador->getId().'"> 
 			<td name="nome">'.$licenciador->getName().'</td>
-			<td name="site">'.$licenciador->getAddress().'</td>
-			<td> <input type="button" class="editarButton" id="'.$licenciador->getId().'" value="Editar"> </td>
+			<!--<td name="site">'.$licenciador->getAddress().'</td>-->
+			<td> <input type="button" class="editarButton" id="'.$licenciador->getId().'" value="Detalhes/Editar"> </td>
 			</tr>';
 	}
 
