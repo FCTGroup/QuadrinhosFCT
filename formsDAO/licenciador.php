@@ -3,7 +3,7 @@
 <script src="licenciador.js"></script>
 
 <p id="resultadoForm"></p>
-<form id="licenciadorForm">
+<form id="licenciadorForm" method="POST" action="../formsListagem/licenciador.php">
 
 <?php 
 
