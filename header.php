@@ -18,7 +18,7 @@
 
 	?>
 	<input type="hidden" id="quantidadeTotalCarrinho" value=<?php echo '"'.$quantidadeCarrinho.'"'?> />
-	<p id="licenciadora" class="headerItem"> </p>
+	<p id="inicio" class="headerItem"><a href="index.php">Início</a></p>
 	<p id="carrinho" class="headerItem"><a href="carrinho.php">Carrinho(<?php echo $quantidadeCarrinho ?>)</a></p>
 	<p id="manager" class="headerItem"><a href="manager.php"> Área gerencial </a></p>
 

@@ -1,0 +1,10 @@
+input#quantidade{
+	width:50px;
+}
+
+div#itemsCarrinho{
+	height: auto;
+	background-color: #FFFFFF;
+	float: left;
+	width: 100%;
+}
