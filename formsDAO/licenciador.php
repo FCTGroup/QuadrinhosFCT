@@ -7,15 +7,22 @@
 
 <?php 
 
+	require_once("../BD/licenciadorDAO.php");
+
 $nome = null;
 $site = null;
 $id = null;
+$licenciador = null;
 
 if(isset($_POST["id"])){
 	$nome = $_POST["nome"]; 
-	$site = $_POST["site"];
 	$id = $_POST["id"];
+
+	$licenciador = (new LicenciadorDAO())->fetchById($id);
 } 
+
+$site = $licenciador->getAddress();
+
 echo '<input type="hidden" id="idHidden" name="idHidden" value="'.$id.'"></p>';
 echo '<p id="nomeLabel"> Nome: <input type="text" id="nomeTxt" name="nomeTxt" value='.$nome.'> </p>';
 echo '<p id="siteLabel"> Site: <input type="text" id="siteTxt" name="siteTxt" value='.$site.'> </p>';
