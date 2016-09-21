@@ -3,7 +3,7 @@
 <script src="status.js"></script>
 
 <p id="resultadoForm"></p>
-<form id="statusForm">
+<form id="statusForm" method="POST" action="../formsListagem/status.php">
 
 <?php 
 

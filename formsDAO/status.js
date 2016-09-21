@@ -13,7 +13,7 @@ $(document).ready(function(){
 				$("#resultadoForm").append(resposta);
 				$("#resultadoForm").css("color","#00FF00");
 				$("#resultadoForm").fadeIn(1000);
-				setTimeout(function() {$("#categoriaForm").submit()}, 1000)},
+				setTimeout(function() {$("#statusForm").submit()}, 1000)},
 		error: function (request, status, errorThrown) {
 			alert(request+","+status+","+errorThrown);}
 		});
@@ -34,7 +34,7 @@ $(document).ready(function(){
 				$("#resultadoForm").append(resposta);
 				$("#resultadoForm").css("color","#00FF00");
 				$("#resultadoForm").fadeIn(1000);
-				setTimeout(function() {$("#categoriaForm").submit()}, 1000)},
+				setTimeout(function() {$("#statusForm").submit()}, 1000)},
 			error: function (request, status, errorThrown) {
 				alert(request+","+status+","+errorThrown);}
 			});
@@ -58,7 +58,7 @@ $(document).ready(function(){
 				$("#resultadoForm").append(resposta);
 				$("#resultadoForm").css("color","#00FF00");
 				$("#resultadoForm").fadeIn(1000);
-				setTimeout(function() {$("#categoriaForm").submit()}, 1000)},
+				setTimeout(function() {$("#statusForm").submit()}, 1000)},
 			error: function (request, status, errorThrown) {
 				alert(request+","+status+","+errorThrown);}
 			});

@@ -10,7 +10,7 @@
 
 	$statusDAO = new StatusDAO();
 	try{
-		$stauts = new Status($nome, $id);
+		$status = new Status($nome, $id);
 		$statusDAO->update($status);
 		echo "Atualizado com sucesso";	
 	}catch(PDOException $e){
