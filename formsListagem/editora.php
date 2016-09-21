@@ -13,7 +13,8 @@
 <?php 
 
 	require_once("../BD/editoraDAO.php");
-
+	require_once('../Entities/editora.php');
+	
 	$DAOEditora = new EditoraDAO();
 	$editoraArray = $DAOEditora->fetchAll();
 

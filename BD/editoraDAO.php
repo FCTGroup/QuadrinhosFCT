@@ -1,7 +1,6 @@
 <?php
 
 	require_once("connection.php");
-	//require_once('../Entities/editora.php');
 
 	class EditoraDAO{
 

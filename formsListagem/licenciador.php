@@ -12,6 +12,7 @@
 <?php 
 
 	require_once("../BD/licenciadorDAO.php");
+	require_once("../Entities/licenciador.php");
 
 	$DAOLicenciador = new LicenciadorDAO();
 	$licenciadorArray = $DAOLicenciador->fetchAll();

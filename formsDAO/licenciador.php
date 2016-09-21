@@ -8,6 +8,7 @@
 <?php 
 
 	require_once("../BD/licenciadorDAO.php");
+	require_once("../Entities/licenciador.php");
 
 $nome = null;
 $site = null;
