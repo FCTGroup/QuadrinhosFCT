@@ -25,15 +25,47 @@ div#postagens{
 	float: left;
 }
 
+div#ultimosQuadrinhosTitulo{
+	width:100%;
+	background: white;
+	margin-bottom: 20px;
+	font-size: 40px;
+	margin-top: -40px;
+	margin-bottom: -30px;
+}
+
 div#ultimosQuadrinhos{
 	width:100%;
-	height: 300px;
 	background: white;
 	margin-bottom: 20px;
 }
 
+td img{
+	width:100%;
+}
+
+td.capa{
+	width: 30%;
+}
+
+td.titulo{
+	width: 100%;
+	text-align: center;
+	font-size: 40px;
+	height: 30%;
+}
+
+td.comicInfo{
+	height: 10%;
+	width: 40%;
+}
+
+input#quantidadeComic{
+	width:50px;
+}
+
 div#pesquisaRapida{
-	width: 20%;
+	width: 24%;
 	height: auto;
 	background: white;
 	float:right;
