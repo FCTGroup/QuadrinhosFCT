@@ -6,7 +6,7 @@ class Genero{
 	private $address;
 	private $id;
 
-	function Licenciador($name, $id=-1){
+	function Genero($name, $id=-1){
 		$this->name = $name;
 		$this->id = $id;
 	}
