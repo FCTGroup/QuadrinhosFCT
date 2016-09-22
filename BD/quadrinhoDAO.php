@@ -6,7 +6,7 @@
 	class QuadrinhoDAO{
 
 
-		public function insert($name){
+		public function insert($name,$numero,$data,$editora,$licenciador,$categoria,$genero,$status,$num_paginas,$formato,$preco,$capa,$descricao){
 
 			$connection = new Connection();
 			$connection->connect();
