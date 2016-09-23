@@ -1,8 +1,8 @@
 
 <script src="../js/jquery-3.1.0.min.js"></script>
-<script src="status.js"></script>
+<script src="formato.js"></script>
 
-<form id="statusForm" action="../formsDAO/status.php" method="POST">
+<form id="formatoForm" action="../formsDAO/formato.php" method="POST">
 	<input type="hidden" id="id" name="id">
 	<input type="hidden" id="nome" name="nome">
 	
@@ -10,17 +10,20 @@
 
 <?php 
 
-	require_once("../BD/statusDAO.php");
+	require_once("../BD/formatoDAO.php");
+	require_once('../Entities/formato.php');
 
-	$DAOStatus = new StatusDAO();
-	$statusArray = $DAOStatus->fetchAll();
+	$DAOFormato = new FormatoDAO();
+
+
+	$formatoArray = $DAOFormato->fetchAll();
 
 	echo '<table>';
 
-	foreach($statusArray as $status){
-		echo '<tr id="'.$status->getId().'"> 
-			<td name="nome">'.$status->getName().'</td>
-			<td> <input type="button" class="editarButton" id="'.$status->getId().'" value="Editar"> </td>
+	foreach($formatoArray as $formato){
+		echo '<tr id="'.$formato->getId().'"> 
+			<td name="nome">'.$formato->getName().'</td>
+			<td> <input type="button" class="editarButton" id="'.$formato->getId().'" value="Editar"> </td>
 			</tr>';
 	}
 

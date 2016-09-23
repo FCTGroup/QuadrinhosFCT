@@ -21,18 +21,20 @@
 	<div id="postagens">
 		<?php 
 
-			require_once("Entities/quadrinhoApresentacao.php");
+			require_once("BD/quadrinhoDAO.php");
+			require_once("Entities/quadrinho.php");
 
-			$quadrinhoArray = array();
-			$quadrinhoArray[] = new QuadrinhoApresentacao("Batman v1", 2, "03/02/2016", 0, "Panini", 
+			$quadrinhoArray = (new QuadrinhoDAO())->fetchLast();
+
+			/*$quadrinhoArray[] = new QuadrinhoApresentacao("Batman v1", 2, "03/02/2016", 0, "Panini", 
 				0, "DC Comics", 0, "Periódico", 0, "Ação", 0, "Concluído", 92, 0, "Americano", 
 				"27x30cm", 19.90, "imagens/batmanv101.jpeg", "O Retorno do Cavaleiro das Trevas");
 
 			$quadrinhoArray[] = new QuadrinhoApresentacao("iZombie", 1, "02/2015", 0, "Panini", 
 				0, "Vertigo", 0, "Edição Especial", 0, "Terror", 0, "Concluído", 92, 0, "Americano", 
 				"27x30cm", 19.90, "imagens/izombie1.jpeg", "Morri pro mundo");
-
-			echo '<div id="ultimosQuadrinhosTitulo"><p>Últimos Quadrinhos</p></div>';
+*/
+			echo '<div id="ultimosQuadrinhosTitulo"><p>Em Destaque</p></div>';
 
 			$i = 0;
 			foreach($quadrinhoArray as $quadrinho){
@@ -56,13 +58,13 @@
 
 				echo '<tr>';
 
-				echo '<td class="comicInfo"> Editora: '.$quadrinho->getEditoraNome().'</td><td class="comicInfo"> Número de Páginas: '.$quadrinho->getNumPaginas().'</td>';
+				echo '<td class="comicInfo"> Editora: '.(new EditoraDAO())->fetchById($quadrinho->getEditora())->getName().'</td><td class="comicInfo"> Número de Páginas: '.$quadrinho->getNumPaginas().'</td>';
 
 				echo '<tr/>';
 				
 				echo '<tr>';
 
-				echo '<td class="comicInfo"> Licenciador: '.$quadrinho->getLicenciadorNome().'</td><td class="comicInfo"> Preço: R$ '.$quadrinho->getPreco().'</td>';
+				echo '<td class="comicInfo"> Licenciador: '.(new LicenciadorDAO())->fetchById($quadrinho->getLicenciador())->getName().'</td><td class="comicInfo"> Preço: R$ '.$quadrinho->getPreco().'</td>';
 
 				echo '<tr/>';
 

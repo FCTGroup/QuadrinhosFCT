@@ -1,7 +1,6 @@
 <?php
 
 	require_once("connection.php");
-	require_once('../Entities/formato.php');
 
 	class FormatoDAO{
 
@@ -11,9 +10,10 @@
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('INSERT INTO status (nome,descricao) VALUES (?,?)');
+			$sql = $connection->getConnection()->prepare('INSERT INTO formato (nome,descricao) VALUES (?,?)');
 
-			$sql->bindValue(1,$name,$description);
+			$sql->bindValue(1,$name);
+			$sql->bindValue(2,$description);
 			$sql->execute();
 
 			$connection->disconnect();
@@ -25,7 +25,7 @@
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('INSERT INTO status (nome,descricao) VALUES (?,?)');
+			$sql = $connection->getConnection()->prepare('INSERT INTO formato (nome,descricao) VALUES (?,?)');
 
 			$sql->bindValue(1,$formato->getName(),$formato->getDescription);
 			$sql->execute();
@@ -45,11 +45,11 @@
 
 			$row = $sql->fetch();
 
-			$status = new Formato($row[0], $row[1], $row[2]);
+			$formato = new Formato($row[0], $row[1], $row[2]);
 
 			$connection->disconnect();
 
-			return $status;
+			return $formato;
 		}
 
 		public function fetchByName($name){
@@ -82,7 +82,7 @@
 			$formatoArray = array();
 
 			while($row = $sql->fetch()){
-				$formatoArray[] = new Formato($row[0], $row[1], $row[2]);
+				$formatoArray[] = new Formato($row[0],$row[1], $row[2]);
 			}
 
 			$connection->disconnect();
@@ -98,7 +98,7 @@
 			$sql = $connection->getConnection()->prepare('UPDATE formato SET nome=?,descricao=? WHERE id = ?');
 
 			$sql->bindValue(1,$formato->getName());
-			$sql->bindValue(2,$formato->getDescricao());
+			$sql->bindValue(2,$formato->getDescription());
 			$sql->bindValue(3,$formato->getId());
 			$sql->execute();
 

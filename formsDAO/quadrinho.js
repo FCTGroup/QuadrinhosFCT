@@ -22,8 +22,8 @@ $(document).ready(function(){
 
 	$('#atualizarButton').click(function(){
 
-		if(($("#nomeTxt").val() != "") && ($("#numeroTxt").val() != "")  && ($("#dataTxt").val() != "") && ($("#editoraTxt").val() != "") && ($("#licenciadorTxt").val() != "") &&  ($("#categoriaTxt").val() != "")
-		&& ($("#generoTxt").val() != "") && ($("#statusTxt").val() != "") && ($("#num_paginasTxt").val() != "") && ($("#formatoTxt").val() != "") &&
+		if(($("#nomeTxt").val() != "") && ($("#numeroTxt").val() != "")  && ($("#dataTxt").val() != "") && ($("#editoraSel").val() != "") && ($("#licenciadorSel").val() != "") &&  ($("#categoriaSel").val() != "")
+		&& ($("#generoSel").val() != "") && ($("#statusSel").val() != "") && ($("#num_paginasTxt").val() != "") && ($("#formatoSel").val() != "") &&
 		($("#precoTxt").val() != "") && ($("#capaTxt").val() != "") && ($("#descricaoTxt").val() != "")){
 
 			$.ajax({
@@ -49,8 +49,8 @@ $(document).ready(function(){
 
 	$('#cadastrarButton').click(function(){
 
-		if(($("#nomeTxt").val() != "") && ($("#numeroTxt").val() != "")  && ($("#dataTxt").val() != "") && ($("#editoraTxt").val() != "") && ($("#licenciadorTxt").val() != "") &&  ($("#categoriaTxt").val() != "")
-		&& ($("#generoTxt").val() != "") && ($("#statusTxt").val() != "") && ($("#num_paginasTxt").val() != "") && ($("#formatoTxt").val() != "") &&
+		if(($("#nomeTxt").val() != "") && ($("#numeroTxt").val() != "")  && ($("#dataTxt").val() != "") && ($("#editoraSel").val() != "") && ($("#licenciadorSel").val() != "") &&  ($("#categoriaSel").val() != "")
+		&& ($("#generoSel").val() != "") && ($("#statusSel").val() != "") && ($("#num_paginasTxt").val() != "") && ($("#formatoSel").val() != "") &&
 		($("#precoTxt").val() != "") && ($("#capaTxt").val() != "") && ($("#descricaoTxt").val() != "")){
 
 			$.ajax({

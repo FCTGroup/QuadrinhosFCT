@@ -5,12 +5,14 @@
 	$quadrinhoForm = $_POST;
 	$quadrinho = array();
 	parse_str($quadrinhoForm["dadosForm"],$dados);
-	$id = $dados["idHidden"];
-
+	$nome = $dados["hiddenNome"];
+	$numero = $dados["hiddenNumero"];
 	$quadrinhoDAO = new QuadrinhoDAO();
+
 	try{
-		$quadrinhoDAO->delete($id);
-		echo "Excluído com sucesso";	
+		$quadrinhoDAO->delete($nome,$numero);
+		//echo "Excluído com sucesso";	
+		echo $nome.$numero;
 	}catch(PDOException $e){
 		echo "Erro ao excluir";
 	}

@@ -6,7 +6,7 @@ class Formato{
 	private $description;
 	private $id;
 
-	function Licenciador($name, $description, $id=-1){
+	function Formato($name, $description, $id=-1){
 		$this->name = $name;
 		$this->description = $description;
 		$this->id = $id;

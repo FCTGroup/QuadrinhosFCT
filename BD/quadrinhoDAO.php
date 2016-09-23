@@ -1,7 +1,7 @@
 <?php
 
 	require_once("connection.php");
-	require_once('../Entities/quadrinho.php');
+	//require_once('../Entities/quadrinho.php');
 
 	class QuadrinhoDAO{
 
@@ -58,13 +58,14 @@
 
 		}
 
-		public function fetchById($id){
+		public function fetchById($nome, $numero){
 
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('SELECT * FROM quadrinho WHERE id=?');
-			$sql->bindValue(1,$id);
+			$sql = $connection->getConnection()->prepare('SELECT * FROM quadrinho WHERE nome=? AND numero=?');
+			$sql->bindValue(1,$nome);
+			$sql->bindValue(2,$numero);
 			$sql->execute();
 
 			$row = $sql->fetch();
@@ -73,7 +74,7 @@
 
 			$connection->disconnect();
 
-			return $genero;
+			return $quadrinho;
 		}
 
 		public function fetchByName($name){
@@ -111,7 +112,25 @@
 
 			$connection->disconnect();
 
-			return $generoArray;	
+			return $quadrinhoArray;	
+		}
+
+		public function fetchLast(){
+			$connection = new Connection();
+			$connection->connect();
+
+			$sql = $connection->getConnection()->prepare('SELECT * FROM quadrinho order by preco desc limit 2');
+			$sql->execute();
+
+			$quadrinhoArray = array();
+
+			while($row = $sql->fetch()){
+				$quadrinhoArray[] = new Quadrinho($row[0], $row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8],$row[9],$row[10],$row[11],$row[12]);
+			}
+
+			$connection->disconnect();
+
+			return $quadrinhoArray;		
 		}
 
 		public function update($quadrinho){
@@ -142,13 +161,14 @@
 
 		}
 
-		public function delete($id){
+		public function delete($nome, $numero){
 			$connection = new Connection();
 			$connection->connect();
 
-			$sql = $connection->getConnection()->prepare('DELETE FROM quadrinho WHERE id = ?');
+			$sql = $connection->getConnection()->prepare('DELETE FROM quadrinho WHERE nome = ? AND numero = ?');
 
-			$sql->bindValue(1,$id);
+			$sql->bindValue(1,$nome);
+			$sql->bindValue(2,$numero);
 			$sql->execute();
 
 			$connection->disconnect();

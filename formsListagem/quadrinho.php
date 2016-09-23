@@ -1,27 +1,31 @@
 
 <script src="../js/jquery-3.1.0.min.js"></script>
-<script src="genero.js"></script>
+<script src="quadrinho.js"></script>
 
-<form id="generoForm" action="../formsDAO/genero.php" method="POST">
+<form id="quadrinhoForm" action="../formsDAO/quadrinho.php" method="POST">
 	<input type="hidden" id="id" name="id">
 	<input type="hidden" id="nome" name="nome">
+	<input type="hidden" id="numero" name="numero">
 	
 
 	<table>
 
 <?php 
 
-	require_once("../BD/generoDAO.php");
+	require_once("../BD/quadrinhoDAO.php");
+	require_once("../Entities/quadrinho.php");
 
-	$DAOGenero = new GeneroDAO();
-	$generoArray = $DAOGenero->fetchAll();
+	$DAOQuadrinho = new QuadrinhoDAO();
+	$quadrinhoArray = $DAOQuadrinho->fetchAll();
 
 	echo '<table>';
 
-	foreach($generoArray as $genero){
-		echo '<tr id="'.$genero->getId().'"> 
-			<td name="nome">'.$genero->getName().'</td>
-			<td> <input type="button" class="editarButton" id="'.$genero->getId().'" value="Editar"> </td>
+	$i = 0;
+	foreach($quadrinhoArray as $quadrinho){
+		echo '<tr id="id'.$i.'"> 
+			<td name="nome">'.$quadrinho->getNome().'</td>
+			<td name="numero">'.$quadrinho->getNumero().'</td>
+			<td> <input type="button" class="editarButton" id="'.$i++.'" value="Editar"> </td>
 			</tr>';
 	}
 
